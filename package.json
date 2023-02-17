@@ -1,0 +1,27 @@
+{
+  "name": "reto_node",
+  "version": "1.0.0",
+  "description": "Contador de palabras aplicado a determinado artículo de Wikipedia",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linaarroyogradiweb/reto-node.git"
+  },
+  "keywords": [
+    "javascript",
+    "node"
+  ],
+  "author": "Lina Arroyo <lina.arroyo@gradiweb.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linaarroyogradiweb/reto-node/issues"
+  },
+  "homepage": "https://github.com/linaarroyogradiweb/reto-node#readme",
+  "dependencies": {
+    "wikipedia": "^1.2.0",
+    "words-n-numbers": "^7.1.2"
+  }
+}
