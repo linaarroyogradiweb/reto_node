@@ -8,16 +8,25 @@ const readline = require('readline').createInterface({
 
 async function countWords(wikilink) {
     const wiki = require('wikipedia');
-
-        try {
-            const page = await wiki.page(wikilink);
-            console.log(`Url: ${page.fullurl}`);
-            const content = await page.content();
-            let tokenized = extract(content);
-            console.log(`El artículo tiene: ${tokenized.length} palabras`);
-        } catch (error) {
-            console.log(error);
-        }
+    await wiki.setLang('es');
+    try {
+        const page = await wiki.page(wikilink);
+        console.log(`Url: ${page.fullurl}`);
+        const content = await page.content();
+        let tokenized = extract(content);
+        let wordCounter = {};
+        tokenized.forEach(token => {
+            if (token in wordCounter) {
+                wordCounter[token]++;
+            } else {
+                wordCounter[token] = 1;
+            }
+        });
+        console.log("Cada palabra se repite estas veces:", wordCounter);
+        console.log(`El artículo tiene un total de: ${tokenized.length} palabras`);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function main() {
